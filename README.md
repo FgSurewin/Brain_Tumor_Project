@@ -4,7 +4,7 @@
 
 
 # Filename: Makefile
-PROJECT_NAME = YourProjectName -> substitute your project name
+PROJECT_NAME = Brain Tumor Classification using ML and DL -> substitute your project name
 
 # config.py
 YourProjectName -> substitute your project name
