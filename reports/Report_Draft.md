@@ -27,12 +27,26 @@ In this project, we first perform exploratory data analysis (EDA) to understand 
 
 
 ### 3-1 Exploratory Data Analysis and Feature Extraction
-<br/>
+
+
+
+
 ### 3-2 Classification with Machine Learning Algorithms
-<br/>
+
+
+
+
 ### 3-2 Classification with Deep Learning Algorithms
-<br/>
+
+
+
+
+
 ### 3-3 Image Segmentation
+
+
+
+
 
 <br/>
 
