@@ -11,8 +11,8 @@ A brain tumor is commonly known as the growth of abnormal cells in the brain, so
 
 Machine learning and deep learning approaches have become popular among researchers in medical fields, particularly convolutional neural networks (CNN), which can handle and analyze large amounts of complex image data and perform classification. When these algorithms are applied to the MRI images, the prediction of the brain tumor is done very fast and a higher accuracy helps in providing the treatment to the patients. These predictions also help the radiologist in making quick decisions. Therefore, we propose to leverage machine learning and deep learning knowledge to build a classification model using MRI images.  This project is an application project, which has two main contributions listed below:
 
-- We will develop classification models based on machine learning, and we will optimize model parameters based on evaluation metrics.
-- We will also apply deep learning techniques and try multiple neural network architectures to do the classification and compare their performance. The goal is to find the model which not only achieves good accuracy but also it will be able to generalize.
+- We develop classification models based on machine learning, and we will optimize model parameters based on evaluation metrics.
+- We also apply deep learning techniques and try multiple neural network architectures to do the classification and compare their performance. The goal is to find the model which not only achieves good accuracy but also it will be able to generalize.
 
 <br/>
 
@@ -27,11 +27,11 @@ In this project, we first perform exploratory data analysis (EDA) to understand 
 
 
 ### 3-1 Exploratory Data Analysis and Feature Extraction
-
+<br/>
 ### 3-2 Classification with Machine Learning Algorithms
-
+<br/>
 ### 3-2 Classification with Deep Learning Algorithms
-
+<br/>
 ### 3-3 Image Segmentation
 
 <br/>
