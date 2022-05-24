@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import VotingClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
@@ -38,3 +39,7 @@ class train_model:
     def train_linear_svc(self):
         linear_SVM = SVC(kernel='linear', probability=True)
         linear_SVM.fit(self.X_train, self.y_train)
+
+    def train_majority_voting(self, lst_models):
+        VC = VotingClassifier(estimators=lst_models, voting='soft')
+        VC.fit(self.X_train, self.y_train)
