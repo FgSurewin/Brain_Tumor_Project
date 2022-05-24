@@ -1,6 +1,10 @@
 from re import X
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
 
 
 class train_model:
@@ -14,3 +18,23 @@ class train_model:
     def train_random_forest_classifier(self):
         self.clf = RandomForestClassifier(n_estimators=300, random_state=0)
         self.clf.fit(self.X_train, self.y_train)
+
+    def train_SVC(self):
+        SVM = SVC(kernel='rbf', probability=True)
+        SVM.fit(self.X_train, self.y_train)
+
+    def train_KNN(self):
+        neigh = KNeighborsClassifier()
+        neigh.fit(self.X_train, self.y_train)
+
+    def train_gaussian_nb(self):
+        gnb = GaussianNB()
+        gnb.fit(self.X_train, self.y_train)
+
+    def train_logistic_regression(self):
+        lr = LogisticRegression(random_state=0)
+        lr.fit(self.X_train, self.y_train)
+
+    def train_linear_svc(self):
+        linear_SVM = SVC(kernel='linear', probability=True)
+        linear_SVM.fit(self.X_train, self.y_train)

@@ -27,3 +27,4 @@ class visualize:
         plt.imshow(img_pca_10, cmap='gray_r')
         plt.title('Compressed image with n components', fontsize=15, pad=15)
         plt.show()
+    
