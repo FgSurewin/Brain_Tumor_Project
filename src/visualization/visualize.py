@@ -3,18 +3,37 @@ import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 from sklearn.metrics import roc_curve, auc
 import numpy as np
+from skimage.color import rgb2gray
+from skimage.filters import rank
 
 
 class visualize:
-    def __init__(self, pca, pca_reduced, df) -> None:
+    def __init__(self, pca, pca_reduced, df,img, mask) -> None:
         self.pca = pca
         self.pca_reduced = pca_reduced
         self.df = df
+        self.img = img
+        self.mask =mask
 
     def get_length_of_classes(self):
         sns.countplot(data=self.df, x=self.df['label'])
         plt.title('Length Of Classes')
         plt.show()
+    
+    def Display_img_mask2(self):
+        gray_img = rgb2gray(self.img)
+
+        fig, axes = plt.subplots(1, 3, figsize=(10, 8))
+        ax = axes.ravel()
+        ax[0].imshow(self.img)
+        ax[0].set_title("Original")
+        ax[1].imshow(gray_img, cmap=plt.cm.gray)
+        ax[1].set_title("Grayscale")
+        ax[2].imshow(self.mask)
+        ax[2].set_title("Mask")
+        fig.tight_layout()
+
+
 
     def get_explained_variance(self):
         plt.grid()
@@ -51,3 +70,4 @@ class visualize:
         plt.xlabel('False positive rate (FPR)')
         plt.ylabel('True positive rate (TPR)')
         plt.show()
+
