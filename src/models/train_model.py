@@ -6,6 +6,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import VotingClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import roc_auc_score
+import pandas as pd
 
 
 class train_model:
@@ -43,3 +48,60 @@ class train_model:
     def train_majority_voting(self, lst_models):
         VC = VotingClassifier(estimators=lst_models, voting='soft')
         VC.fit(self.X_train, self.y_train)
+
+    
+    
+class all_models:
+
+    def __init__(self, X_train,X_test, y_train, y_test) -> None:
+        self.X_train = X_train
+        self.X_test = X_test
+        self.y_train = y_train
+        self.y_test = y_test 
+
+    
+    def all_models(self):
+    
+        names = ["Naive_Bayes", "Nearest_Neighbors", "Logistic Regression", "Random_Forest", "RBF_SVM"]
+        
+        classifiers = [
+            GaussianNB(),
+            KNeighborsClassifier(n_neighbors=3),
+            LogisticRegression(random_state=0, max_iter=1000, C=1.0),
+            RandomForestClassifier(n_estimators=100 ,random_state=0),
+            SVC(kernel="rbf", random_state=0)]
+
+
+        classification_scores = []
+        precision = []
+        recall = []
+        Fscore = []
+        classificaation_auc = []
+
+
+        for name, clf in zip(names, classifiers):
+        
+            clf.fit(self.X_train, self.y_train)
+            y_pred = clf.predict(self.X_test)
+            score = np.round(clf.score(self.X_test, self.y_test),2)
+            prec = np.round(precision_score(self.y_test, y_pred, average='binary'),2)
+            rec = np.round(recall_score(self.y_test, y_pred, average='binary'),2)
+            fs= np.round(f1_score(self.y_test, y_pred, average='binary'),2)
+            auc = np.round(roc_auc_score(self.y_test,y_pred, average = 'macro'),2)
+            classification_scores.append(score)
+            precision.append(prec)
+            recall.append(rec)
+            Fscore.append(fs)
+            classificaation_auc.append(auc)
+
+            
+        result = pd.DataFrame()
+        result['Classifier_name'] = names
+        result['Accuracy'] = classification_scores
+        result['Precision'] = precision
+        result['Recall'] = recall
+        result['F_Score'] = Fscore
+        result['AUC'] = classificaation_auc
+        
+        
+        return result
