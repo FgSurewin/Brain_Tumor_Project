@@ -1,4 +1,4 @@
 # Brain Tumor Detection 
 ==============================
 
-[Enter short description]
+Cancer is the second leading cause of death after cardiovascular disease. Of all types of cancer, brain cancer has the lowest survival rate. Brain tumors can come in different types, depending on their shape, texture and location. A proper diagnosis of the type of tumor allows doctors to make the right treatment choices to help save patients' lives. However, a recent study indicated that 12% of brain tumors had been misdiagnosed by pathologists, which means that the diagnostic accuracy of brain tumor detection is around 88%. In this paper, we propose an advanced methodology to determine the existence of brain tumors using machine learning and deep learning. Finally, we evaluated the proposed model on a Kaggle dataset containing 3064 MRI images as well as masks. We achieved the highest accuracy of 97%, exceeding the diagnostic accuracy of pathologists.
